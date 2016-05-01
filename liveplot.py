@@ -65,7 +65,7 @@ class XYHistoryPlotterWidget:
 
 class XYPIDWidget:
     def __init__(self, ):
-        self.widget = pg.PlotWidget()
+        self.widget = QtGui.QWidget()
         self.layout = QtGui.QGridLayout()
         self.widget.setLayout(self.layout)
 
@@ -88,22 +88,11 @@ class XYPIDWidget:
 
 app = QtGui.QApplication([])
 win = QtGui.QMainWindow()
-win.setWindowTitle('pyqtgraph self.example: SpinBox')
+win.setWindowTitle('Piezo Mirror Stabilization Controller')
 cw = XYPIDWidget()
 win.setCentralWidget(cw.widget)
-
-# sbsx = PIDSpinBoxes()
-# sbsy = PIDSpinBoxes()
-# spwdx = ScrollPlotterWidget()
-# spwdy = ScrollPlotterWidget()
-# sphxy = XYHistoryPlotterWidget()
-# layout.addWidget(sbsx.widget)
-# layout.addWidget(spwdx.widget)
-# layout.addWidget(sbsy.widget)
-# layout.addWidget(spwdy.widget)
-# layout.addWidget(sphxy.widget)
-#
 win.show()
+
 
 
 
