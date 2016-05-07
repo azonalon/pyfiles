@@ -38,6 +38,7 @@ class PIDSpinBoxes:
     def connect(self, func):
         self.event_handler = func
 
+
 class ScrollPlotterWidget:
     def __init__(self):
         self.data = np.zeros(100)
@@ -95,6 +96,8 @@ win.show()
 
 
 
+xypid = XYPIDWidget()
+xypid.on_update()
 
 if __name__ == '__main__':
     parent_conn, child_conn = Pipe()
@@ -103,7 +106,9 @@ if __name__ == '__main__':
 
     def update():
         x, y = np.random.random(size=2)
+        parent_conn.send([])
         cw.add_point(x, y)
+    xypid.xSpinBox.connect(update)
 
 
     timer = pg.QtCore.QTimer()
